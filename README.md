@@ -1,4 +1,4 @@
-# BC-IDS
+# BNaT: Blockchain Network Attack Traffic
 The Synthesis Blockchain Intrusion Detection System dataset
 
 *We encourage you to also perform reproducible research!*. If you use this dataset, please acknowledge the following paper.
