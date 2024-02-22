@@ -1,8 +1,9 @@
-# BNaT: Blockchain Network Attack Traffic
+# BNaT: Blockchain Network Attack Traffic dataset
 The Synthesis Blockchain Intrusion Detection System dataset
 
 *We encourage you to also perform reproducible research!*. If you use this dataset, please acknowledge the following paper.
 
+- Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," *IEEE Transactions on Systems, Man, and Cybernetics: Systems*, pp. 1–12, Feb. 2024.
 
 ## License and Referencing
 
