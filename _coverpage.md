@@ -1,4 +1,4 @@
-<img class="logo" src="./assets/img/logo.png">
+<img class="logo" src="./assets/img/Logo.png">
 
 # **BNaT**
 
