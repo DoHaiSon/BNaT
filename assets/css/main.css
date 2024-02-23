@@ -19,6 +19,11 @@
   padding: 25px;
 }
 
+table {
+  height: 300px;
+  overflow: scroll;
+}
+
 @media screen and (max-width: 600px) {
   .logo {
     width: 40%;
