@@ -35,9 +35,13 @@
 
 ## List of references
 
+<span style="color:red">The details of the BNaT dataset were published in following the paper. For the academic/public use of this dataset, the authors have to cite the following paper:</span>
+
 - Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, and Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," *IEEE Transactions on Systems, Man, and Cybernetics: Systems*, pp. 1-15, Feb. 2024. (accepted) [pre-print](https://arxiv.org/abs/2203.11076)
 
 ## Referenced by
+
+BNaT is used by the following papers:
 
 ## Acknowledgements
 

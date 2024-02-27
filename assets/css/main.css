@@ -1,8 +1,8 @@
 .logo {
-  width: 10%;
+  width: 5%;
 }
 .dashboard {
-  width: 50%;
+  width: 30%;
 }
 
 .footer {
@@ -26,10 +26,10 @@ table {
 
 @media screen and (max-width: 600px) {
   .logo {
-    width: 40%;
+    width: 30%;
   }
   .dashboard {
-    width: 100%;
+    width: 80%;
   }
   .footer {
     width: 100%;
