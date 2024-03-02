@@ -1,7 +1,7 @@
 **Support**
 
 - Github issue: [https://github.com/DoHaiSon/InSI/issues](https://github.com/DoHaiSon/InSI/issues/new/choose)
-- Email: [avitech@vnu.edu.vn](mailto:avitech@vnu.edu.vn)
+- Email: [khoa.v.tran@student.uts.edu.au](mailto:khoa.v.tran@student.uts.edu.au) or [avitech@vnu.edu.vn](mailto:avitech@vnu.edu.vn)
 
 **Community**
 

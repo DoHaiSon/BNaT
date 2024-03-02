@@ -1,5 +1,6 @@
-## BNaT
-> Blockchain Network Attack Traffic dataset
+## BNaT: Blockchain Network Attack Traffic dataset
+
+> #### Contact: Mr. Viet Khoa Tran, Ph.D. Candidate at University of Technology Sydney (UTS). Email: [ khoa.v.tran@student.uts.edu.au](mtailto:khoa.v.tran@student.uts.edu.au)
 
 ## Dataset overview
 
@@ -10,23 +11,25 @@ In our experiments, we set up an Ethereum blockchain network in our laboratory w
 - Bootnode is also created by *Geth v1.10.14* and connected to the three Ethereum nodes.
 - Ethereum netstats is launched by an open-source software named "eth-netstats" on Github.
 
-The normal traffic data is configured with the three trustful servers, while an attack device will execute abnormal/malicious activities to the blockchain network traffic. Each trustful server takes responsibility for generating data and sending transactions to the corresponding Ethereum node in its subnetwork as visualized in Conver figure. In summary, in the normal state, the following tasks are scheduled or randomly occur in the network:
-- The servers are scheduled to send transactions.   
-- The users call functions in the deployed smart contracts to explore the ledger. Besides transaction-related functions, the users also send requests to the Ethereum nodes for tracking their balances or the status of miners. Both of these works are randomly made by HTTP requests to the Ethereum node API (Application Programming Interface).
-- Ethereum nodes broadcast transactions and mined blocks to synchronize their ledgers. The packets of bootnode are also included in this field.
-- WebSockets and JSON-RPC are used when netstats get information from *Geth* clients.
-- HTTP requests and replies to view netstats interface and results of cyberattack detection.
-
 #### Dataset collection and Feature extraction
-In general, the goals of an adversary are usually the monetary benefit, e.g., chain splitting, and wallet theft, or stability of the network, e.g., delay and information loss. In this work, we focus on the attacks at the network layer. Attacks at the application layer, e.g., 51%, transaction malleability attacks, timejacking, and smart contract attacks, are out of the scope of this work and can be considered in future work. Specifically, we perform four typical types of network attacks that have been reported in blockchain networks, i.e., the BP for wallet theft; DoS and MitM for information loss; and FoT for consensus delay. These are the ubiquitous attacks in the network traffic layer that have caused a number of serious consequences for many years. More details are as follows:
-- Brute Password (**BP**) attack: is derived from traditional cyberattack when hackers perform such attacks to steal blockchain users' accounts. In this way, the hackers can access the users' wallets and steal their digital assets. 
-- Denial of Service (**DoS**) attack: is also another common type of attack in blockchain networks as it can be easily performed to attack blockchain nodes. For such kind of attack, the attackers will launch a huge amount of traffic to a target blockchain node in a short period of time. Consequently, the target node will not be able to work as normal, i.e., mining transactions, and even be suspended. In our setup, a simple DoS attack is simulated, i.e., an SYN flood attack, by repeatedly sending initial connection request (SYN) packets to an Ethereum node. 
-- Flooding of Transactions (**FoT**) attack: targets delay the PoW blockchain network by spamming the blockchain network with null or meaningless transactions. When the number of transactions per second in the Ethereum network suddenly hits the top, a mining node may face two following issues, i.e., too much traffic (similar as that of DoS), and the queue of pending transactions is full. It equates to the unnecessary time burden for mining process and block propagation. In our work, FoT attack is implemented by continuously sending a large number of transactions to an existing smart contract.
-- Man in the Middle (**MitM**) attack: is another typical attack where an attacker places himself between the legitimate communicating parties and secretly relays and possibly modifies the information exchanged between them. In this way, the attacker can intercept, read, and modify the blockchain messages. For example, hackers can read the API messages between users and blockchain nodes to steal their wallet password. To implement MitM, an attack device first filters *eth_sendrawtransaction* packets, which represent any transaction from users to blockchain nodes. Then, these packets' contents are randomly modified, leading to invalid transactions.
+We perform four typical types of network attacks that have been reported in blockchain networks, i.e., the BP for wallet theft; DoS and MitM for information loss; and FoT for consensus delay. These are the ubiquitous attacks in the network traffic layer that have caused a number of serious consequences for many years. More details are as follows:
+1. Brute Password (**BP**) attack: is derived from traditional cyberattack when hackers perform such attacks to steal blockchain users' accounts. In this way, the hackers can access the users' wallets and steal their digital assets. 
 
-We built a dataset collection tool, named **BC-ID**, which inherits the core of an open-source utility named [kdd99_feature_extractor](https://github.com/AI-IDS/kdd99_feature_extractor) and our new designs to fit the considered Ethereum network, i.e., correct the service of packets related to Ethereum nodes, remove meaningless features, and automate label dataset samples based on some given properties. To do this, we first use the [libpcap-dev](https://packages.debian.org/sid/libpcap-dev) library of Linux to capture all the network data (including normal and different types of attacks) from the local network. Then, the BC-ID is used to extract features from the collected data, filter the attack samples, and label them as normal or a type of attack. As [KDD99 dataset](https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html), BC-ID extracts features and then separates them into two categories, e.g, basic features (i.e., all the attributes can be extracted from a TCP/IP connection) and traffic features (i.e., statistics of packets with the same destination host or service in a window interval). Especially, our goal is to achieve a trained model that can be applied to our proposed real-time blockchain attack detection system, when the number of samples in a prediction frame is limited. Thus, the BC-ID collects the dataset frames in which each frame lasts for 2 seconds and extracts their features. The BC-ID then puts all collected data in this frame into a single file. Finally, we merge all single files together to make the full dataset. In the below table, we shows 21 features in the designed dataset, which are separated into two types, i.e., discrete (D) and continuous (C). For continuous features, they are calculated in 2 seconds time window (similar to that of the famous KDD99 dataset). 
+2. Denial of Service (**DoS**) attack: is also another common type of attack in blockchain networks as it can be easily performed to attack blockchain nodes. 
 
-In each Ethereum node, the separated dataset is collected in five states (classes), i.e., normal state (Class-0), BP attack (Class-1), DoS attack (Class-2), FoT attack (Class-3), and MitM attack (Class-4). The normal state is captured in two hours, the rest of them in an hour through the designed BC-ID tool. As described above, when a node is attacked, the normal traffic still exists. Therefore, the attack samples can be filtered out by features-based two properties, i.e., the source and destination IP address of the attack device; *service*, *src_length*, and *dst_length* of the samples, which are analyzed by [Wireshark](https://www.wireshark.org/). To improve the diversity of the designed dataset, the normal traffic data in the attack state is mixed with traffic data in the normal state. In our experiments, a number of random samples in each state are selected to reduce the size of the bulk dataset. In fact, we mix normal traffic data in an equal ratio, i.e., 10,000 samples per normal state, normal traffic data at BP, DoS, FoT, and MitM, respectively. 
+3. Flooding of Transactions (**FoT**) attack: targets delay the PoW blockchain network by spamming the blockchain network with null or meaningless transactions. 
+
+4. Man in the Middle (**MitM**) attack: is another typical attack where an attacker places himself between the legitimate communicating parties and secretly relays and possibly modifies the information exchanged between them. In this way, the attacker can intercept, read, and modify the blockchain messages. 
+
+</br>
+</br>
+
+<p style="text-align: center"><img style="width:60%" src="./assets/img/model.png"></p>
+<p style="text-align: center">Figure 1: Flowchart of Collecting the BNaT dataset and Collaborative Learning for Cyberattack Detection in Blockchain Networks.</p>
+</br>
+</br>
+
+<p style="text-align: center">Table 1: Features of the BNaT dataset.</p>
 
 | \#                                                        | **Features name**                  | **T** | **Description**                                                                       |
 | :-------------------------------------------------------- | :--------------------------------- | :---- | :------------------------------------------------------------------------------------ |
@@ -60,8 +63,6 @@ In each Ethereum node, the separated dataset is collected in five states (classe
 | 20                                                        | *dst\_host\_srv\_diff\_host\_rate* | C     | % of different host connections                                                       |
 | 21                                                        | *dst\_host\_srv\_serror\_rate*     | C     | % of `SYN' errors connections                                                         |
 
-#### This is the demo how we created and used this dataset on our paper
-<iframe width="560px" height="315px" src="https://www.youtube.com/embed/uW6Khv_aPLg?si=FBofjGEpMerd4Wcl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Data explorer
 
@@ -90,22 +91,21 @@ In each Ethereum node, the separated dataset is collected in five states (classe
 | 0        | tcp           | http    | 392       | 0         | OTH  | 7     | 3         | 0           | 0.43          | 0.57          | 0               | 0                  | 7              | 3                  | 0.43                   | 0.57                   | 0                           | 0                    | 0                           | 0                        | MitM   |
 | 0        | tcp           | other   | 66        | 0         | OTH  | 36    | 49        | 0           | 0.83          | 0.17          | 0               | 0.39               | 36             | 49                 | 0.83                   | 0.17                   | 0                           | 0                    | 0.39                        | 0                        | Normal |
 
-## List of references
+</br>
+</br>
 
-<span style="color:red">The details of the BNaT dataset were published in following the paper. For the academic/public use of this dataset, the authors have to cite the following paper:</span>
+<span style="color:red; font-size:22px"><b>This dataset is free for use for academic purposes such as study and research. However, using this dataset for commercial purposes requires approval from the authors. The details of the BNaT dataset were published in the following paper. For academic or public use of this dataset, the authors must cite the following paper:</b></span>
 
-- Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, and Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," *IEEE Transactions on Systems, Man, and Cybernetics: Systems*, pp. 1-15, Feb. 2024. (accepted) [pre-print](https://arxiv.org/abs/2203.11076)
-
-## Referenced by
-
-BNaT is used by the following papers:
+<span style="font-size:18px"> Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, and Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," <i>IEEE Transactions on Systems, Man, and Cybernetics: Systems</i>, Feb. 2024. (accepted) <a href="https://arxiv.org/abs/2203.11076" target="_blank">[pre-print]</a><span>
 
 ## Acknowledgements
 
-This work was supported by the **ASEAN IVO (ICT Virtual Organization of ASEAN Institutes and NICT)** under Project [Cyber-Attack Detection and Information Security for Industry 4.0](https://www.nict.go.jp/en/asean_ivo/ASEAN_IVO_2018_Projects02.html). 
+<div style="font-size:18px">
+This work was supported by the <b><i>ASEAN IVO (ICT Virtual Organization of ASEAN Institutes and NICT)</i></b> under Project: <b>Cyber-Attack Detection and Information Security for Industry 4.0</b>. More information at: <a href="https://www.nict.go.jp/en/asean_ivo/ASEAN_IVO_2018_Projects02.html" target="_blank">https://www.nict.go.jp/en/asean_ivo/ASEAN_IVO_2018_Projects02.html</a>. 
+</div>
 
 <p float="left" style="text-align-last: center">
-  <a href="https://www.nict.go.jp/en/asean_ivo/ASEAN_IVO_2018_Projects02.html" target="_blank"><img src="./assets/img/IVO.png" class="logo"/></a>
+  <a href="https://www.nict.go.jp/en/asean_ivo/ASEAN_IVO_2018_Projects02.html" target="_blank"><img src="./assets/img/IVO.png" class="ivo"/></a>
 </p>
 
 > Docs website is powered by [docsify](https://docsify.js.org/)
