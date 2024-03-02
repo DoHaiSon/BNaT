@@ -1,6 +1,6 @@
 **Support**
 
-- Github issue: [https://github.com/DoHaiSon/InSI/issues](https://github.com/DoHaiSon/InSI/issues/new/choose)
+- Github issue: [https://github.com/DoHaiSon/BNaT/issues](https://github.com/DoHaiSon/BNaT/issues/new/choose)
 - Email: [khoa.v.tran@student.uts.edu.au](mailto:khoa.v.tran@student.uts.edu.au) or [avitech@vnu.edu.vn](mailto:avitech@vnu.edu.vn)
 
 **Community**
