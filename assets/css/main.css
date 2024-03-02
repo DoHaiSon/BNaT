@@ -46,7 +46,7 @@ table {
     width: 30%;
   }
   .model {
-    width: 80%;
+    width: 100%;
   }
   .dashboard {
     width: 80%;
@@ -55,7 +55,7 @@ table {
     width: 100%;
   }
   .column {
-    padding: 10px;
+    padding: 5px;
   }
   .youtube {
     width: 80%;
