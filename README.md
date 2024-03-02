@@ -24,7 +24,7 @@ We perform four typical types of network attacks that have been reported in bloc
 </br>
 </br>
 
-<p style="text-align: center"><img style="width:60%" src="./assets/img/model.png"></p>
+<p style="text-align: center"><img class="model" src="./assets/img/model.png"></p>
 <p style="text-align: center">Figure 1: Flowchart of Collecting the BNaT dataset and Collaborative Learning for Cyberattack Detection in Blockchain Networks.</p>
 </br>
 </br>
