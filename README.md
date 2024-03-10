@@ -1,6 +1,8 @@
 ## BNaT: Blockchain Network Attack Traffic dataset
 
-> #### Contact: Mr. Viet Khoa Tran, Ph.D. Candidate at University of Technology Sydney (UTS). Email: [ khoa.v.tran@student.uts.edu.au](mtailto:khoa.v.tran@student.uts.edu.au)
+> #### Mr Viet Khoa Tran, 
+> #### - Cyber Security Engineer at the University of Canberra (UC). Email: [ khoa.tran@canberra.edu.au](mailto:khoa.tran@canberra.edu.au) 
+> #### - Ph.D. Candidate at the University of Technology Sydney (UTS). Email: [ khoa.v.tran@student.uts.edu.au](mailto:khoa.v.tran@student.uts.edu.au)
 
 ## Dataset overview
 
