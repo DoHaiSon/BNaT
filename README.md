@@ -98,7 +98,7 @@ We perform four typical types of network attacks that have been reported in bloc
 
 <span style="color:red; font-size:22px"><b>This dataset is free for use for academic purposes such as study and research. However, using this dataset for commercial purposes requires approval from the authors. The details of the BNaT dataset were published in the following paper. For academic or public use of this dataset, the authors must cite the following paper:</b></span>
 
-<span style="font-size:18px"> Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, and Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," <i>IEEE Transactions on Systems, Man, and Cybernetics: Systems</i>, Feb. 2024. (accepted) <a href="https://arxiv.org/abs/2203.11076" target="_blank">[pre-print]</a><span>
+<span style="font-size:18px"> Tran Viet Khoa, Do Hai Son, Dinh Thai Hoang, Nguyen Linh Trung, Tran Thi Thuy Quynh, Diep N. Nguyen, Nguyen Viet Ha, and Eryk Dutkiewicz, "Collaborative Learning for Cyberattack Detection in Blockchain Networks," <i>IEEE Transactions on Systems, Man, and Cybernetics: Systems, early access</i>, pp. 1-14, Apr. 2024. <a href="https://arxiv.org/abs/2203.11076" target="_blank">[pre-print]</a><span>
 
 ## Acknowledgements
 
